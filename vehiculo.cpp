@@ -7,9 +7,8 @@ using namespace std;
 			string marca;
 			string velocimetro;
 		public:
-			vehiculo(string placa, string col, string mar, string vel)
-				: numeroPlaca(placa), color(col), marca(mar), velocimetro(vel) {
-				}
+			Vehiculo(string placa, string col, string mar, string vel)
+				: numeroPlaca(placa), color(col), marca(mar), velocimetro(vel) {}
 			void mostrarDatos() const{
 			cout<<numeroPlaca<<color<<marca<<velocimetro;
 			}
@@ -24,21 +23,21 @@ using namespace std;
 			int cantidadPasajeros;
 		public:
 			Automovil(string placa, string col, string mar, string vel)
-			Vehiculo(placa, col, mar, vel){}
+				: Vehiculo(placa, col, mar, vel) {}
 			
-			void mostrarAtomovil() const{
+			void mostrarAutomovil() const{
 				mostrarDatos();
 				cout<<cantidadPuertas<<cantidadPasajeros;
 			}
 			
 			void subirPasajeros(int cantidad){
-				cantidadPasajero+= cantidad;
-				cout<<cantidadPasajero;
+				cantidadPasajeros+= cantidad;
+				cout<<cantidadPasajeros;
 			}
 			
 			void bajarPasajeros(int cantidad){
-				cantidadPasajero-=cantidad;
-				cout<<cantidadPasajero;
+				cantidadPasajeros-=cantidad;
+				cout<<cantidadPasajeros;
 			}
 	};
 	
@@ -46,8 +45,8 @@ using namespace std;
 		private:
 			double carga;
 		public:
-			Camion(string placa, string col, string mar, string vel)
-			: Vehiculo(string puertas, string pasajeros)
+			Camion(string placa, string col, string mar, string vel) 
+			: Vehiculo(placa, col, mar, vel) {}
 			void mostrarCamion() const{
 			mostrarDatos();
 			cout<<carga;
@@ -58,10 +57,20 @@ using namespace std;
 	};
 	
 	int main(){
-		Automovil miAuto("WOLF123","Azul","Toyota","10/05/27" );
-		Camion miCamion("YeleroX", "Negro", "Avenger","26/03/27");
+		Automovil miAuto("WOLF123","Azul","Toyota",0);
+		Camion miCamion("YeleroX", "Negro", "Avenger",0);
+		cout<<miAuto.mostrarAutomovil(23);
+		cout<<miCamion.mostrarCamion(20.0);
+		cout<<endl;		
+		miAuto.cambiarVelocidad(30);
+		miAuto.subirPasajeros(10);
 		
-		miAuto.
+		miCamion.cambiarVelocidad(40);
+		miCamion.cambiarCarga(16.0);
+		
+		cout<<miAuto.mostrarAtomovil();
+		cout<<miCamion.mostrarCamion();
+		
 	return 0;
 	}
 	
