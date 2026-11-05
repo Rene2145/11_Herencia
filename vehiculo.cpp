@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-int main (){
 	class Vehiculo{
 		protected:
 			string numeroPlaca;
@@ -12,7 +11,7 @@ int main (){
 				: numeroPlaca(placa), color(col), marca(mar), velocimetro(vel) {
 				}
 			void mostrarDatos() const{
-			cout<<numeroPlaca<<color<<marca<<velocimetro}
+			cout<<numeroPlaca<<color<<marca<<velocimetro;
 			}
 			void cambiarVelocidad(int nuevaVelocidad){
 			velocimetro=nuevaVelocidad;
@@ -24,12 +23,23 @@ int main (){
 			int cantidadPuertas;
 			int cantidadPasajeros;
 		public:
-			automovil(string puertas, string pasajeros)
-			Vehiculo(placa, col, mar, vel)
+			Automovil(string placa, string col, string mar, string vel)
+			Vehiculo(placa, col, mar, vel){}
+			
 			void mostrarAtomovil() const{
 				mostrarDatos();
 				cout<<cantidadPuertas<<cantidadPasajeros;
-			}	
+			}
+			
+			void subirPasajeros(int cantidad){
+				cantidadPasajero+= cantidad;
+				cout<<cantidadPasajero;
+			}
+			
+			void bajarPasajeros(int cantidad){
+				cantidadPasajero-=cantidad;
+				cout<<cantidadPasajero;
+			}
 	};
 	
 	class Camion : public Vehiculo{
@@ -47,5 +57,11 @@ int main (){
 			}
 	};
 	
+	int main(){
+		Automovil miAuto("WOLF123","Azul","Toyota","10/05/27" );
+		Camion miCamion("YeleroX", "Negro", "Avenger","26/03/27");
+		
+		miAuto.
 	return 0;
-}
+	}
+	
