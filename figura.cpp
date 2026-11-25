@@ -35,18 +35,38 @@ cout<<"Altura: "<<altura<<endl;
 }
 };
 
+class Triangulo : public Figura {
+private:
+double base, altura;
+string tipo;
+public:
+Triangulo(string c, double b, double h, string t) : Figura(c), base(b), altura(h), tipo(t) {}
+double calcularArea() {return (base*altura)/2;}
+void mostrarDatos() {
+cout<<"Color: "<<color<<endl;
+cout<<"Base: "<<base<<endl;
+cout<<"Altura: "<<altura<<endl;
+cout<<"Tipo: "<<tipo<<endl;
+}
+};
+
 int main() {
 Circulo circulo("Rojo", 5);
 Rectangulo rectangulo("Azul", 8, 4);
+Triangulo triangulo("Verde", 6, 4, "Isosceles");
 
 cout<<"CIRCULO: "<<endl;
 circulo.mostrarDatos();
 cout<<"Area: "<<circulo.calcularArea()<<endl;
 cout<<"Perimetro: "<<circulo.calcularPerimetro()<<endl;
 
-cout<<"\n RECTANGULO: "<<endl;
+cout<<"\nRECTANGULO: "<<endl;
 rectangulo.mostrarDatos();
 cout<<"Area: "<<rectangulo.calcularArea()<<endl;
+
+cout<<"\nTRIANGULO: "<<endl;
+triangulo.mostrarDatos();
+cout<<"Area: "<<triangulo.calcularArea()<<endl;
 
 return 0;
 }
